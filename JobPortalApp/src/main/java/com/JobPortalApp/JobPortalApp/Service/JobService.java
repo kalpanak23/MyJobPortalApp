@@ -61,10 +61,12 @@ public class JobService {
     public String deleteJob(int id){
         if(jobRepo.existsById(id)){
             jobRepo.deleteById(id);
-            return id+" Data deleted successfully.";
+//            return id+
+            return null;
         }
         else {
-            return "ID not present.";
+            return null;
+//            return "ID not present.";
         }
     }
 
