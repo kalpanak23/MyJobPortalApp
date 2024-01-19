@@ -30,6 +30,6 @@ public class Job {
     @Column(name="Location")
     private String location;
     @Column(name="Contact")
-    private int contact;
+    private long contact;
 
 }

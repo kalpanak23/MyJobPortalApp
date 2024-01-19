@@ -34,14 +34,23 @@ public class JobController {
         return jobService.getJobDetailsById(id);
     }
 
-    @PutMapping("/updateJob")
-    public Job updateJobDetails(@RequestBody Job job){
-        return jobService.updateDetail(job);
+//    @PutMapping("/updateJob")
+//    public Job updateJobDetails(@RequestBody Job job){
+//        return jobService.updateDetail(job);
+//    }
+
+    @PutMapping("/updateJob/{id}")
+    public ResponseEntity<Job> updateJobDetails(@PathVariable Integer id, @RequestBody Job job) {
+        Job updatedJob = jobService.updateJobDetails(id, job);
+        return new ResponseEntity<>(updatedJob, HttpStatus.OK);
     }
 
+
     @DeleteMapping("/deleteJob/{id}")
-    public String deleteDetails(@PathVariable int id){
-        return jobService.deleteJob(id);
+    public ResponseEntity<String> deleteDetails(@PathVariable int id){
+        jobService.deleteJob(id);
+
+        return ResponseEntity.ok().build();
     }
 
 
